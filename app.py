@@ -95,12 +95,12 @@ def get_style(direction="ltr"):
 body {{
     font-family:'Segoe UI',sans-serif;
     background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-    min-height:100vh; padding:30px 15px; direction:{direction};
+    min-height:100vh; padding:0; direction:{direction};
 }}
 .container {{
-    max-width:1000px; margin:0 auto; background:#fff;
-    border-radius:24px; padding:40px;
-    box-shadow:0 30px 80px rgba(0,0,0,0.5);
+    max-width:100%; margin:0 auto; background:#fff;
+    border-radius:0; padding:40px 60px;
+    min-height:100vh;
 }}
 .logo {{ text-align:center; margin-bottom:25px; }}
 .logo h1 {{
