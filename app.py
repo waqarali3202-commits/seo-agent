@@ -66,7 +66,7 @@ def ai_call(prompt, max_tokens=900):
             "HTTP-Referer": "http://localhost",
             "X-Title": "Mr Websol SEO Agent"
         }
-        data = {"model": "openai/gpt-3.5-turbo", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens}
+        data = {"model": "google/gemma-3-12b-it:free", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens}
         r = req.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=data, timeout=60)
         if r.status_code == 200:
             return r.json()["choices"][0]["message"]["content"]
