@@ -64,7 +64,7 @@ def ai_call(prompt, max_tokens=900):
             "Authorization": f"Bearer {API_KEY}",
             "Content-Type": "application/json",
         }
-        data = {"model": "llama3-70b-8192", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens}
+        data = {"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens}
         r = req.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data, timeout=60)
         if r.status_code == 200:
             return r.json()["choices"][0]["message"]["content"]
