@@ -5,7 +5,7 @@ import re
 import os
 
 app = Flask(__name__)
-API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+API_KEY = os.environ.get("GROQ_API_KEY", "")
 HEADERS_BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"}
 
 # ─────────────────────────────────────────────
@@ -63,11 +63,9 @@ def ai_call(prompt, max_tokens=900):
         headers = {
             "Authorization": f"Bearer {API_KEY}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost",
-            "X-Title": "Mr Websol SEO Agent"
         }
-        data = {"model": "google/gemma-3-12b-it:free", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens}
-        r = req.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=data, timeout=60)
+        data = {"model": "llama3-70b-8192", "messages": [{"role": "user", "content": prompt}], "max_tokens": max_tokens}
+        r = req.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data, timeout=60)
         if r.status_code == 200:
             return r.json()["choices"][0]["message"]["content"]
         return f"API Error: {r.text}"
