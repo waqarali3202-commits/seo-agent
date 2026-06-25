@@ -5,7 +5,7 @@ import re
 import os
 
 app = Flask(__name__)
-API_KEY = os.environ.get("GROQ_API_KEY", ")
+API_KEY = os.environ.get("GROQ_API_KEY", "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")
 HEADERS_BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"}
 
 # ─────────────────────────────────────────────
