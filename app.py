@@ -165,7 +165,7 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#0f0c29
 .trial-bar{background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;text-align:center;padding:10px;font-size:13px;font-weight:600;}
 .trial-bar a{color:white;font-weight:800;margin-left:10px;text-decoration:underline;}
 .navbar{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);padding:10px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.1);position:sticky;top:0;z-index:100;}
-.navbar-logo img{height:45px;object-fit:contain;}
+.navbar-logo img{height:52px;object-fit:contain;}
 .nav-links{display:flex;gap:12px;align-items:center;}
 .nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border-radius:20px;transition:all 0.3s;}
 .nav-links a:hover{background:rgba(255,255,255,0.1);color:white;}
@@ -174,7 +174,7 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#0f0c29
 .bf{background:#e8f5e9;color:#27ae60;}.bt{background:#fff3e0;color:#e67e22;}.bb{background:#e8f0ff;color:#667eea;}.bp{background:#f3e8ff;color:#764ba2;}
 .container{max-width:1000px;margin:30px auto;background:#fff;border-radius:24px;padding:40px;box-shadow:0 30px 80px rgba(0,0,0,0.5);}
 .logo-center{text-align:center;margin-bottom:20px;}
-.logo-center img{height:60px;object-fit:contain;}
+.logo-center img{height:80px;object-fit:contain;margin-bottom:5px;}
 .logo-center p{color:#95a5a6;margin-top:6px;font-size:14px;}
 .divider{height:3px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:3px;margin:20px 0;}
 .step-badge{display:inline-block;background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:5px 18px;border-radius:25px;font-size:13px;font-weight:700;margin-bottom:15px;}
@@ -325,7 +325,7 @@ def page_head(title="Mr Websol SEO Agent"):
 </nav>"""
 
 def logo_section():
-    return f"""<div class="logo-center"><img src="{LOGO_URL}" alt="Mr Websol SEO Agent" style="height:55px"><p>AI Powered Professional SEO Platform</p></div><div class="divider"></div>"""
+    return f"""<div class="logo-center"><img src="{LOGO_URL}" alt="Mr Websol SEO Agent" style="height:80px;object-fit:contain"><p>AI Powered Professional SEO Platform</p></div><div class="divider"></div>"""
 
 # ═══ AUTH ═══
 @app.route("/register", methods=["GET","POST"])
@@ -347,7 +347,7 @@ def register():
 
 def reg_page(err=""):
     return f"""{page_head("Register")}<div class="auth-card">
-    <div style="text-align:center;margin-bottom:20px"><img src="{LOGO_URL}" style="height:50px"></div>
+    <div style="text-align:center;margin-bottom:20px"><img src="{LOGO_URL}" style="height:70px;object-fit:contain"></div>
     <h2>Create Free Account</h2>
     <p style="text-align:center;color:#95a5a6;font-size:13px;margin-bottom:20px">🎉 7 Days FREE Trial — No Credit Card Required!</p>
     {"<div style='background:#fdecea;color:#e74c3c;padding:12px;border-radius:10px;margin-bottom:15px;font-size:13px'>"+err+"</div>" if err else ""}
@@ -374,7 +374,7 @@ def login():
 
 def login_page(err=""):
     return f"""{page_head("Login")}<div class="auth-card">
-    <div style="text-align:center;margin-bottom:20px"><img src="{LOGO_URL}" style="height:50px"></div>
+    <div style="text-align:center;margin-bottom:20px"><img src="{LOGO_URL}" style="height:70px;object-fit:contain"></div>
     <h2>Welcome Back!</h2>
     {"<div style='background:#fdecea;color:#e74c3c;padding:12px;border-radius:10px;margin-bottom:15px;font-size:13px'>"+err+"</div>" if err else ""}
     <form method="POST">
@@ -395,9 +395,26 @@ def pricing():
     <h2 style="text-align:center">Choose Your Plan</h2>
     <p style="text-align:center;color:#95a5a6;margin-bottom:30px;font-size:14px">Start with 7 days free trial!</p>
     <div class="price-grid">
-        <div class="price-card"><h3>🆓 Free</h3><div class="price">$0</div><p style="color:#95a5a6;font-size:13px">Forever free</p><ul><li>15 searches/day</li><li>3 articles/day</li><li>Article Writer only</li><li>Basic website audit</li></ul><a href="/register" class="btn-main" style="display:block;text-align:center;text-decoration:none;margin-top:15px">Get Started</a></div>
-        <div class="price-card featured"><div style="background:#667eea;color:white;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:10px">MOST POPULAR</div><h3>💎 Basic</h3><div class="price">$9<span style="font-size:16px;color:#95a5a6">/mo</span></div><ul><li>Unlimited searches</li><li>Unlimited articles</li><li>All On-Page tools</li><li>Full website audit</li><li>Priority support</li></ul><a href="/register" class="btn-main" style="display:block;text-align:center;text-decoration:none;margin-top:15px">Start Free Trial</a></div>
-        <div class="price-card"><h3>🔥 Pro</h3><div class="price">$10<span style="font-size:16px;color:#95a5a6">/mo</span></div><ul><li>Everything in Basic</li><li>Technical SEO</li><li>Off-Page SEO</li><li>Competitor analysis</li><li>Backlink opportunities</li></ul><a href="/register" class="btn-main btn-orange" style="display:block;text-align:center;text-decoration:none;margin-top:15px">Start Free Trial</a></div>
+        <div class="price-card">
+            <h3>🆓 Free</h3><div class="price">$0</div>
+            <p style="color:#95a5a6;font-size:13px">Forever free</p>
+            <ul><li>15 searches/day</li><li>3 articles/day</li><li>Article Writer only</li><li>Basic website audit</li></ul>
+            <a href="/" class="btn-main" style="display:block;text-align:center;text-decoration:none;margin-top:15px">Current Plan</a>
+        </div>
+        <div class="price-card featured">
+            <div style="background:#667eea;color:white;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:10px">MOST POPULAR</div>
+            <h3>💎 Basic</h3><div class="price">$9<span style="font-size:16px;color:#95a5a6">/mo</span></div>
+            <ul><li>Unlimited searches</li><li>Unlimited articles</li><li>All On-Page tools</li><li>Full website audit</li><li>Priority support</li></ul>
+            <a href="mailto:support@mrwebsol.com?subject=Upgrade to Basic $9/month" class="btn-main" style="display:block;text-align:center;text-decoration:none;margin-top:15px">⚡ Upgrade to Basic</a>
+        </div>
+        <div class="price-card">
+            <h3>🔥 Pro</h3><div class="price">$10<span style="font-size:16px;color:#95a5a6">/mo</span></div>
+            <ul><li>Everything in Basic</li><li>Technical SEO</li><li>Off-Page SEO</li><li>Competitor analysis</li><li>Backlink opportunities</li></ul>
+            <a href="mailto:support@mrwebsol.com?subject=Upgrade to Pro $10/month" class="btn-main btn-orange" style="display:block;text-align:center;text-decoration:none;margin-top:15px">⚡ Upgrade to Pro</a>
+        </div>
+    </div>
+    <div class="note-box" style="margin-top:20px;text-align:center">
+        📧 To upgrade, email us at <strong>support@mrwebsol.com</strong> and we will activate your plan within 24 hours!
     </div>
     <a href="/" class="back-link">← Go Back</a></div></body></html>"""
 
